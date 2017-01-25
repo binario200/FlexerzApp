@@ -30,4 +30,4 @@ var locationSchema = new mongoose.Schema({
 // To meet the GeoJSON specification, a coordinate pair must be entered into the array in the correct order: longitude then latitude.
 
 // building the model from the schema
-mongoose.model('Location', 'locationSchema', 'Locations');
+mongoose.model('Location', locationSchema);
