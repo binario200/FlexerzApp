@@ -40,6 +40,13 @@ Web App for flexers. Find where to use your flexer card, at your neigborhood, yo
     ```
     heroku ps:scale web=1
 
-    heroku open 
+    heroku open
 
     ```
+
+# API specification with swagger
+
+ - install swagger
+ ```
+ npm install -g swagger
+ ```
