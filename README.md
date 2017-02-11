@@ -44,6 +44,22 @@ Web App for flexers. Find where to use your flexer card, at your neigborhood, yo
 
     ```
 
+# MongoDB Utilities
+    ```
+      # creating a temp mongo dump
+      mkdir -p ~/tmp/mongodump
+
+      # getting mongo data from your local mongo instance
+      mongodump -h localhost:27017 -d Flexerz -o ~/tmp/mongodump
+
+      #restoring the data to your live database
+      mongorestore -h your-live-instace:port -d database-name -u user -p password ~/tmp/mongodump/Loc8r
+      # to get the above required data use heroku config:get MONGODB_URI
+
+      # connect to the live database and test the changes
+      mongo hostname:port/database_name -u username -p password
+    ```
+
 # API specification with swagger
 
  - install swagger
