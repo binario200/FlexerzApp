@@ -50,6 +50,7 @@ module.exports.homelist = function(req, res) {
     requestOptions,
     function (err, response, body) {
       if (err) {
+        console.log(err);
         _showDebugError(req, res, err);
       } else {
         var i, data;
