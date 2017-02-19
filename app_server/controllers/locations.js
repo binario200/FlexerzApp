@@ -49,15 +49,19 @@ module.exports.homelist = function(req, res) {
   request(
     requestOptions,
     function (err, response, body) {
-      var i, data;
-      data = body;
-      if (response.statusCode === 200 && data.length) {
-        for (var i = 0; i < data.length; i++) {
-          data[i].distance = _formatDistance(data[i].distance);
+      if (err) {
+        _showDebugError(req, res, err);
+      } else {
+        var i, data;
+        data = body;
+        if (response.statusCode === 200 && data.length) {
+          for (var i = 0; i < data.length; i++) {
+            data[i].distance = _formatDistance(data[i].distance);
+          }
         }
-      }
 
-      renderHomepage(req, res, body);
+        renderHomepage(req, res, body);
+      }      
     }
   );
 };
@@ -73,6 +77,18 @@ var _formatDistance = function (distance) {
   }
   return numDistance + unit;
 }
+
+var _showDebugError = function functionName(req, res, err) {
+  var title, content
+  title = status + ", algo salió mal";
+  content = err;
+
+  res.status(500);
+  res.render('generic-text', {
+    title: title,
+    content: content
+  });
+};
 
 var _showError = function (req, res, status) {
   var title, content;
