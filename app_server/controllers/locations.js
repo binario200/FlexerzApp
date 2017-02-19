@@ -61,7 +61,7 @@ module.exports.homelist = function(req, res) {
         }
 
         renderHomepage(req, res, body);
-      }      
+      }
     }
   );
 };
@@ -80,7 +80,7 @@ var _formatDistance = function (distance) {
 
 var _showDebugError = function functionName(req, res, err) {
   var title, content
-  title = status + ", algo salió mal";
+  title = "Algo salió mal";
   content = err;
 
   res.status(500);
