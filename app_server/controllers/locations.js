@@ -5,7 +5,7 @@ var apiOptions= {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.sever = "https://flexerzapp.herokuapp.com";
+  apiOptions.sever = "http://flexerzapp.herokuapp.com";
 }
 
 var renderHomepage = function (req, res, responseBody) {
