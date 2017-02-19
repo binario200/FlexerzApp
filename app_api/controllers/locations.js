@@ -47,7 +47,7 @@ module.exports.locationsByDistance  = function (req, res) {
   var maxDistance = req.query.maxdistance;
 
   var point = {
-    type: "point",
+    type: "Point",
     coordinates: [lng, lat]
   };
 
