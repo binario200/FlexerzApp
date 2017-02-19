@@ -3,3 +3,12 @@ mixin outputRating(rating)
     span.glyphicon.glyphicon-star
   - for (i = rating; i < 5; i++)
     span.glyphicon.glyphicon-star-empty
+
+mixin formatDate(dateString)
+  - var date = new Date(dateString);
+  - var monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  - var d = date.getDate();
+  - var m = monthNames[date.getMont()];
+  - var y = date.getFullYear();
+  - var output = d + ' ' + m + ' ' + y;
+  =output

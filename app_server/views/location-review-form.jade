@@ -6,9 +6,11 @@ block content
       h1= pageHeader.title
   .row
     .col-xs-12.col-md-6
-      form.form-horizontal(action="/location", method="get", role="form")
+      form.form-horizontal(action="", method="post", role="form")
+        - if (error == "val")
+          .alert.alert-danger(role="alert") Todos los campos son requeridos
         .form-group
-          label.col-xs-10.col-sm-2.control-label(for="name") Name
+          label.col-xs-10.col-sm-2.control-label(for="name") Nombre
           .col-xs-12.col-sm-10
             input#name.form-control(name="name")
         .form-group
@@ -21,8 +23,8 @@ block content
               option 2
               option 1
         .form-group
-          label.col-sm-2.control-label(for="review") Review
+          label.col-sm-2.control-label(for="review") Comentario
           .col-sm-10
             textarea#review.form-control(name="review", rows="5")
-        button.btn.btn-default.pull-right Add my review
+        button.btn.btn-default.pull-right Agregar mi comentario
     .col-xs-12.col-md-4

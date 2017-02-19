@@ -14,18 +14,18 @@ block content
           p= location.address
           .panel.panel-primary
             .panel-heading
-              h2.panel-title Opening hours
+              h2.panel-title Horarios
             .panel-body
               each time in location.openingTimes
                 p
                   | #{time.days} : 
                   if time.closed
-                    | closed
+                    | cerrado
                   else
                     | #{time.opening} - #{time.closing}
           .panel.panel-primary
             .panel-heading
-              h2.panel-title Facilities
+              h2.panel-title Instalaciones
             .panel-body
               each facility in location.facilities
                 span.label.label-warning
@@ -35,15 +35,15 @@ block content
         .col-xs-12.col-sm-6.location-map
           .panel.panel-primary
             .panel-heading
-              h2.panel-title Location map
+              h2.panel-title Ubicacion
             .panel-body
               img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")
       .row
         .col-xs-12
           .panel.panel-primary.review-panel
             .panel-heading
-              a.btn.btn-default.pull-right(href="/location/review/new") Add review
-              h2.panel-title Customer reviews
+              a.btn.btn-default.pull-right(href="/location/review/#{location._id}/new") Agregar Comentario
+              h2.panel-title Comentarios
             .panel-body.review-container
               each review in location.reviews
                 .row
@@ -52,7 +52,8 @@ block content
                       span.rating
                         +outputRating(review.rating)
                       span.reviewAuthor #{review.author}
-                      small.reviewTimestamp #{review.timestamp}
+                      small.reviewTimestamp 
+                        +formatDate(review.createdOn)
                     .col-xs-12
                       p !{(review.reviewText).replace(/\n/g, '<br/>')}
     .col-xs-12.col-md-3
